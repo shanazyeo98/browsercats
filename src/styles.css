@@ -1,0 +1,111 @@
+#header-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	font-family: 'pixeloid-sans';
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+body {
+	position: relative;
+}
+
+button {
+	border-radius: 10px;
+	border: none;
+	height: 30px;
+	width: 75px;
+	background-color: #27a3f3 ;
+	color: white;
+	font-weight: bold;
+}
+
+input {
+	border-radius: 10px;
+	height: 25px;
+	width: 300px;
+	text-align: center;
+	border: solid #27a3f3;
+}
+
+.speech-bubble {
+	background-color: #f4fbff;
+	color: #282828;
+	text-align: center;
+	margin-bottom: 25px;
+	padding: 10px;
+	border-radius: 15px;
+	font-family: 'pixeloid-sans';
+	border: solid #d7e8f3 3px;
+	position: relative;
+	font-size: 13px;
+	width: 100px;
+	height: auto;
+	overflow-wrap: break-word;
+}
+
+/*allows to add content before / after a html element without additional html
+Left and right borders made transparent to form a triangle shape with only the top border
+Psuedo elements need a point of reference for positioning and setting position: relative provides the reference
+Position absolute: remove normal document positioning*/
+
+.speech-bubble::after {
+	content: "";
+	position: absolute;
+	bottom: -10px; /*moves 10px down from the bottom of the parent*/
+	left: 50%; /*positions the left side of the element to the mid point of the parent*/
+	transform: translateX(-50%); /*moves the element by 50% of its width to the left*/
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #f4fbff;
+}
+
+  .speech-bubble::before {
+	content: "";
+	position: absolute;
+	bottom: -15px; /* Position the tail at the bottom */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 13px solid #d7e8f3;
+  }
+
+
+.single-cat {
+	display: flex;
+	flex-direction: column;
+	width: 150px;
+	align-items: center;
+	position: fixed;
+	/* bottom: 800px; */
+	animation: moveDown 2s ease-out forwards; /*specify the name, the time, ease-out: specify the animation to be slower towards the end, fowards: retain the style value retained by the last keyframe*/
+}
+
+@keyframes moveDown {
+	0% {
+		bottom: 500px;
+	}
+	100% {
+		bottom: 100px;
+	}
+}
+
+/* .single-cat img {
+	bottom: 200px;
+} */
+
+@font-face {
+	font-family: 'pixeloid-sans';
+	src: url(../assets/PixeloidSans-mLxMm.ttf);
+}
