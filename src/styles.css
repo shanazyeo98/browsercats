@@ -34,6 +34,14 @@ input {
 	border: solid #27a3f3;
 }
 
+select {
+	border-radius: 10px;
+	height: 30px;
+	width: 100px;
+	text-align: center;
+	border: solid #27a3f3;
+}
+
 .speech-bubble {
 	background-color: #f4fbff;
 	color: #282828;
@@ -90,6 +98,10 @@ Position absolute: remove normal document positioning*/
 	position: fixed;
 	/* bottom: 800px; */
 	animation: moveDown 2s ease-out forwards; /*specify the name, the time, ease-out: specify the animation to be slower towards the end, fowards: retain the style value retained by the last keyframe*/
+}
+
+.single-cat:hover {
+	filter: drop-shadow(0 0 2px #77787a);
 }
 
 @keyframes moveDown {
